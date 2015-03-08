@@ -14,7 +14,7 @@ CLI
 
 CODE
 ========================
-1. Adding menus - index.html
+1.Adding menus - index.html
 ```
 <ion-side-menus>
 
@@ -41,7 +41,7 @@ CODE
 
 </ion-side-menus>
 ```
-2. Display Tasks - index.html
+2.Display Tasks - index.html
 ```
 <ion-side-menus>
 
@@ -73,7 +73,7 @@ CODE
 
 </ion-side-menus>
 ```
-3. Displaying Test Data - app.js
+3.Displaying Test Data - app.js
 ```
 angular.module('todo')
 .controller('TodoCtrl', function($scope, $ionicModal) {
@@ -89,7 +89,7 @@ angular.module('todo')
 });
 
 ```
-4. Creating new-task.html - index.html
+4.Creating new-task.html - index.html
 ```
 <script id="new-task.html" type="text/ng-template">
 
@@ -121,13 +121,13 @@ angular.module('todo')
 
 </script>
 ```
-5. Creating the add button - index.html
+5.Creating the add button - index.html
 ```
 <button class="button button-icon" ng-click="newTask()">
 	<i class="icon ion-compose"></i>
 </button>
 ```
-6. Setting up the controller to open the modal and add task - app.js
+6.Setting up the controller to open the modal and add task - app.js
 ```
 .controller('TodoCtrl', function($scope, $ionicModal) {
   // No need for testing data anymore
