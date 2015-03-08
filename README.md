@@ -41,7 +41,6 @@ CODE
 
 </ion-side-menus>
 ```
-
 2. Display Tasks - index.html
 ```
 <ion-side-menus>
@@ -74,7 +73,6 @@ CODE
 
 </ion-side-menus>
 ```
-
 3. Displaying Test Data - app.js
 ```
 angular.module('todo')
@@ -91,7 +89,6 @@ angular.module('todo')
 });
 
 ```
-
 4. Creating new-task.html - index.html
 ```
 <script id="new-task.html" type="text/ng-template">
@@ -132,37 +129,37 @@ angular.module('todo')
 ```
 6. Setting up the controller to open the modal and add task - app.js
 ```
- .controller('TodoCtrl', function($scope, $ionicModal) {
-      // No need for testing data anymore
-      $scope.tasks = [];
+.controller('TodoCtrl', function($scope, $ionicModal) {
+  // No need for testing data anymore
+  $scope.tasks = [];
 
-      // Create and load the Modal
-      $ionicModal.fromTemplateUrl('new-task.html', function(modal) {
-        $scope.taskModal = modal;
-      }, {
-        scope: $scope,
-        animation: 'slide-in-up'
-      });
-
-      // Called when the form is submitted
-      $scope.createTask = function(task) {
-        $scope.tasks.push({
-          title: task.title
-        });
-        $scope.taskModal.hide();
-        task.title = "";
-      };
-
-      // Open our new task modal
-      $scope.newTask = function() {
-        $scope.taskModal.show();
-      };
-
-      // Close the new task modal
-      $scope.closeNewTask = function() {
-        $scope.taskModal.hide();
-      };
+  // Create and load the Modal
+  $ionicModal.fromTemplateUrl('new-task.html', function(modal) {
+	$scope.taskModal = modal;
+  }, {
+	scope: $scope,
+	animation: 'slide-in-up'
   });
+
+  // Called when the form is submitted
+  $scope.createTask = function(task) {
+	$scope.tasks.push({
+	  title: task.title
+	});
+	$scope.taskModal.hide();
+	task.title = "";
+  };
+
+  // Open our new task modal
+  $scope.newTask = function() {
+	$scope.taskModal.show();
+  };
+
+  // Close the new task modal
+  $scope.closeNewTask = function() {
+	$scope.taskModal.hide();
+  };
+});
 
 ```
 
