@@ -16,8 +16,8 @@
         StatusBar.styleDefault();
       }
     });
-  })
-
+  });
+  angular.module('todo')
   .controller('TodoCtrl', function($scope, $ionicModal) {
       // No need for testing data anymore
       $scope.tasks = [];
