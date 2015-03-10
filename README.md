@@ -4,6 +4,7 @@ TODO Workshop
 CLI
 =========================
 1. npm install -g cordova ionic
+2. ionic start todo blank
 2. ionic platform add ios
 3. ionic platform add android
 4. ionic build ios
@@ -160,6 +161,12 @@ angular.module('todo')
 	$scope.taskModal.hide();
   };
 });
+
+```
+THINGS TO TAKE NOTE
+============================
+```
+Latest version of ionic CLI would change the angular module to be called 'starter' instead of the 'todo' in this workshop
 
 ```
 
