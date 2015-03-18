@@ -1,6 +1,11 @@
 TODO Workshop
 =========================
 
+STEPS TO INSTALL NPM/NODE
+=========================
+1. MAC - http://coolestguidesontheplanet.com/installing-node-js-osx-10-9-mavericks/
+2. Window - http://blog.teamtreehouse.com/install-node-js-npm-windows
+
 CLI
 =========================
 1. npm install -g cordova ionic
