@@ -49,39 +49,42 @@ CODE
 ```
 2.Display Tasks - index.html
 ```
-<ion-side-menus>
+<body ng-app="starter" ng-controller="TodoCtrl">
 
-  <!-- Center content -->
-  <ion-side-menu-content>
-	<ion-header-bar class="bar-dark">
-	  <h1 class="title">Todo</h1>
+  <ion-side-menus>
 
-	  <!-- New Task button-->
-	  <button class="button button-icon" ng-click="newTask()">
-		<i class="icon ion-compose"></i>
-	  </button>
-	</ion-header-bar>
-	<ion-content>
-	  <ion-list>
-		<ion-item ng-repeat="task in tasks">
-		  {{task.title}}
-		</ion-item>
-	  </ion-list>
-	</ion-content>
-  </ion-side-menu-content>
+    <!-- Center content -->
+    <ion-side-menu-content>
+      <ion-header-bar class="bar-dark">
+        <h1 class="title">Todo</h1>
 
-  <!-- Left menu -->
-  <ion-side-menu side="left">
-	<ion-header-bar class="bar-dark">
-	  <h1 class="title">Projects</h1>
-	</ion-header-bar>
-  </ion-side-menu>
+        <!-- New Task button-->
+        <button class="button button-icon" ng-click="newTask()">
+          <i class="icon ion-compose"></i>
+        </button>
+      </ion-header-bar>
+      <ion-content>
+        <ion-list>
+          <ion-item ng-repeat="task in tasks">
+            {{task.title}}
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-side-menu-content>
 
-</ion-side-menus>
+    <!-- Left menu -->
+    <ion-side-menu side="left">
+      <ion-header-bar class="bar-dark">
+        <h1 class="title">Projects</h1>
+      </ion-header-bar>
+    </ion-side-menu>
+
+  </ion-side-menus>
+</body>
 ```
 3.Displaying Test Data - app.js
 ```
-angular.module('todo')
+angular.module('starter')
 .controller('TodoCtrl', function($scope, $ionicModal) {
   // No need for testing data anymore
   $scope.tasks = [
@@ -129,44 +132,64 @@ angular.module('todo')
 ```
 5.Creating the add button - index.html
 ```
-<button class="button button-icon" ng-click="newTask()">
-	<i class="icon ion-compose"></i>
-</button>
+<ion-header-bar class="bar-dark">
+	<h1 class="title">Todo</h1>
+	<!-- New Task button-->
+	<button class="button button-icon" ng-click="newTask()">
+	  <i class="icon ion-compose"></i>
+	</button>
+</ion-header-bar>
 ```
 6.Setting up the controller to open the modal and add task - app.js
 ```
-.controller('TodoCtrl', function($scope, $ionicModal) {
-  // No need for testing data anymore
-  $scope.tasks = [];
+angular.module('starter')
+  .controller('TodoCtrl', function($scope, $ionicModal) {
+    // No need for testing data anymore
+    $scope.tasks = [];
 
-  // Create and load the Modal
-  $ionicModal.fromTemplateUrl('new-task.html', function(modal) {
-	$scope.taskModal = modal;
-  }, {
-	scope: $scope,
-	animation: 'slide-in-up'
+    // Create and load the Modal
+    $ionicModal.fromTemplateUrl('new-task.html', function(modal) {
+      $scope.taskModal = modal;
+    }, {
+      scope: $scope,
+      animation: 'slide-in-up'
+    });
+
+    // Called when the form is submitted
+    $scope.createTask = function(task) {
+      $scope.tasks.push({
+        title: task.title
+      });
+      $scope.taskModal.hide();
+      task.title = "";
+    };
+
+    // Open our new task modal
+    $scope.newTask = function() {
+      $scope.taskModal.show();
+    };
+
+    // Close the new task modal
+    $scope.closeNewTask = function() {
+      $scope.taskModal.hide();
+    };
   });
 
-  // Called when the form is submitted
-  $scope.createTask = function(task) {
-	$scope.tasks.push({
-	  title: task.title
-	});
-	$scope.taskModal.hide();
-	task.title = "";
-  };
-
-  // Open our new task modal
-  $scope.newTask = function() {
-	$scope.taskModal.show();
-  };
-
-  // Close the new task modal
-  $scope.closeNewTask = function() {
-	$scope.taskModal.hide();
-  };
-});
-
+```
+7.Delete Task - app.js
+```
+	 $scope.deleteTask = function(index) {
+          $scope.tasks.splice(index,1);
+	 };
+```
+8. Adding delete button - index.html
+```
+<ion-item ng-repeat="task in tasks">
+	{{task.title}}
+	<ion-option-button class="button-assertive" ng-click="deleteTask($index)">
+	  Delete
+	</ion-option-button>
+</ion-item>
 ```
 THINGS TO TAKE NOTE
 ============================
