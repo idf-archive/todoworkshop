@@ -9,17 +9,23 @@ STEPS TO INSTALL NPM/NODE
 CLI
 =========================
 1. npm install -g cordova ionic
-2. ionic start todo blank
-2. ionic platform add ios
-3. ionic platform add android
-4. ionic build ios
-5. ionic emulate ios
-6. ionic serve
-7. ionic run android
+1. ionic start todo blank
+1. cd todo
+1. ionic platform add ios  # require MacOS
+1. ionic platform add android  # require dependencies, but can directly serve
+1. ionic build ios
+1. ionic emulate ios
+1. ionic serve  #  resources auto updated 
+1. ionic run android
 
 
 CODE
 ========================
+
+```bash
+cd www
+```
+
 1.Adding menus - index.html
 ```
 <ion-side-menus>
@@ -50,9 +56,7 @@ CODE
 2.Display Tasks - index.html
 ```
 <body ng-app="starter" ng-controller="TodoCtrl">
-
   <ion-side-menus>
-
     <!-- Center content -->
     <ion-side-menu-content>
       <ion-header-bar class="bar-dark">
@@ -78,11 +82,13 @@ CODE
         <h1 class="title">Projects</h1>
       </ion-header-bar>
     </ion-side-menu>
-
   </ion-side-menus>
 </body>
 ```
+
 3.Displaying Test Data - app.js
+
+Appending to the app.js 
 ```
 angular.module('starter')
 .controller('TodoCtrl', function($scope, $ionicModal) {
@@ -99,6 +105,9 @@ angular.module('starter')
 
 ```
 4.Creating new-task.html - index.html
+
+as `<script>` as cache 
+
 ```
 <script id="new-task.html" type="text/ng-template">
 
@@ -182,7 +191,8 @@ angular.module('starter')
           $scope.tasks.splice(index,1);
 	 };
 ```
-8. Adding delete button - index.html
+
+8.Adding delete button - index.html
 ```
 <ion-item ng-repeat="task in tasks">
 	{{task.title}}
@@ -190,6 +200,11 @@ angular.module('starter')
 	  Delete
 	</ion-option-button>
 </ion-item>
+```
+
+9.Publish to ionic view 
+```bash
+ionic upload 
 ```
 THINGS TO TAKE NOTE
 ============================
