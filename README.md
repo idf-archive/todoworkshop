@@ -209,8 +209,8 @@ ionic upload
 THINGS TO TAKE NOTE
 ============================
 ```
-Latest version of ionic CLI would change the angular module to be called 'starter' instead of the 'todo' in this workshop
-
+Latest version of ionic CLI would change the angular module to be called 'starter' 
+instead of the 'todo' in this workshop
 ```
 
 OTHERS
@@ -219,3 +219,6 @@ OTHERS
   1. ios-sim showdevicetypes # show different type of emulator you can use
   2. cd ./platforms/ios/build/emulator
   3. ios-sim launch ./platforms/ios/build/emulator/todo.app --devicetypeid "com.apple.CoreSimulator.SimDeviceType.iPhone-6, 8.1"
+
+https://github.com/driftyco/ionic  
+https://github.com/facebook/react-native  
